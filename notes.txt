@@ -1,0 +1,8 @@
+https://docs.microsoft.com/en-us/learn/modules/rust-create-command-line-program/
+// to make easy to handle command-line arguments, we can use a third-party crate called: structopt
+// the commando below check whether it's available and determine the most recent version
+$ cargo search structopt
+
+$ cargo run -- add "buy milk"
+$ cargo run -- done 4
+$ cargo run -- -j groceries.txt list
