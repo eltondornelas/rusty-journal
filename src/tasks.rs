@@ -18,10 +18,10 @@ pub struct Task {
     pub created_at: DateTime<Utc>,
 }
 
-impl fmt::Display for Task {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        let created_at = self.created_at.with_timezone(&Local).format("%F %H:%M");
-        write!(f, "{:<50} [{}]", self.text, created_at)
+impl Task {
+    pub fn new(text: String) -> Task {
+        let created_at: DateTime<Utc> = Utc::now();
+        Task { text, created_at }
     }
 }
 
@@ -104,10 +104,19 @@ pub fn list_tasks(journal_path: PathBuf) -> Result<()> {
     } else {
         let mut order: u32 = 1;
         for task in tasks {
-            println!("{}: {}", order, task); // TODO: test commeting the Display function for :#?
+            println!("{}: {}", order, task);
+            // println!("{}: {:<50} [{}]", order, task.text, task.created_at.with_timezone(&Local).format("%F %H:%M"));
             order += 1;
         }
     }
 
     Ok(())
+}
+
+impl fmt::Display for Task {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let created_at = self.created_at.with_timezone(&Local).format("%F %H:%M");
+        // https://docs.rs/chrono/0.4.19/chrono/format/strftime/index.html
+        write!(f, "{:<50} [{}]", self.text, created_at)
+    }
 }
