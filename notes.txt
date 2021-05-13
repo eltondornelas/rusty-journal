@@ -6,3 +6,17 @@ $ cargo search structopt
 $ cargo run -- add "buy milk"
 $ cargo run -- done 4
 $ cargo run -- -j groceries.txt list
+
+//  chrono is a good crate to use if you need to handle date and time data in Rust. It provides an easy API for representing a moment in time.
+$ cargo search chrono
+
+/* When we need to persist structs and enum instances, we need to think about serialization.
+ * When we need to get that data back into a program, we’re talking about deserialization.
+ * Serialization and deserialization are the processes of storing data in a stream of bytes and then retrieving
+ * it for later use, without any loss of information. You can then send those bytes over a connection or store them
+ * in a file in a storage device.
+ **********************************************************************************************************************/
+
+ $ cargo search serde
+ $ cargo search serde_json
+
