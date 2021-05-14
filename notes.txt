@@ -36,3 +36,10 @@ $ cargo run -- -j test-journal.json list
     1: buy milk                                           [2021-01-08 16:39]
     2: water the plants                                   [2021-01-08 16:39]
 
+
+// To compile the program, go to the terminal and run the command:
+$ cargo run --release.
+
+// The compiled binary (the executable file) will be in the target/release/ directory and will be named after the project name. "rusty-journal"
+$ ./rusty-journal -j test-journal.json add "finish reading the book"
+$ ./rusty-journal -j test-journal.json list
